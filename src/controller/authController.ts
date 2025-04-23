@@ -5,9 +5,11 @@ export class AuthController {
     isAuthenticated = async (call: any, callback: any) => {
         try {
             const token = call.request.token || ''
+            // console.log(token);
 
             const decoded: any = jwt.verify(token, process.env.ACCESS_TOKEN || 'Amal' as Secret)
-          
+            // console.log(decoded);
+
             if (!decoded) {
                 throw new Error('invalid token')
             }
@@ -21,7 +23,10 @@ export class AuthController {
 
     verifyToken = async (call: any, callback: any) => {
         try {
+            // console.log('---------------------------------------');
+
             const refreshtoken = call.request.token as string
+            console.log(refreshtoken, '---------------------------------------');
             const decoded: any = jwt.verify(refreshtoken, process.env.REFRESH_TOKEN || 'Amal' as Secret)
             console.log("token refreshed ");
             if (!decoded) {
