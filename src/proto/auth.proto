@@ -1,17 +1,17 @@
-    syntax = "proto3";
+syntax = "proto3";
 
 package authpackage;
 
-service Auth{
+service Auth {
   rpc IsAuthenticated(AuthReq) returns(AuthRes) {};
   rpc RefreshToken(RefreshReq) returns(RefreshRes) {};
 }
 
-message RefreshReq{
+message RefreshReq {
   string token = 1;
 }
 
-message RefreshRes{
+message RefreshRes {
   string access_token = 1;
   string refresh_token = 2;
   string message = 3;
