@@ -21,9 +21,11 @@ export class AuthRepository implements IAuthRepository {
     }
 
     async generateTokens(userId: string, role: string): Promise<{ accessToken: string; refreshToken: string }> {
+        console.log('generate the token :',userId);
+        
         const payload = { id: userId, role };
         const accessToken = signAccessToken(payload, process.env.ACCESS_TOKEN || 'Amal');
-        console.log(`Access token generated for user ${userId}: ${accessToken}`);
+        console.log(`Access token generated for user ${payload.id}: ${accessToken}`);
         const refreshToken = signRefreshToken(payload, process.env.REFRESH_TOKEN || 'Amal');
         console.log(`Refresh token generated for user ${userId}: ${refreshToken}`);
         return { accessToken, refreshToken };
