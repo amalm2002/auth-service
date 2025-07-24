@@ -4,4 +4,6 @@ import { RefreshTokenDto } from '../../dto/auth/refresh-token.dto';
 export interface IAuthController {
     isAuthenticated(call: any, callback: any): Promise<void>;
     refreshToken(call: any, callback: any): Promise<void>;
+    // blacklistToken(call: any, callback: any): Promise<void>;
+    // unblacklistToken(call: any, callback: any): Promise<void>;
 }

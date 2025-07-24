@@ -5,6 +5,8 @@ package authpackage;
 service Auth {
   rpc IsAuthenticated(AuthReq) returns(AuthRes) {};
   rpc RefreshToken(RefreshReq) returns(RefreshRes) {};
+  rpc BlacklistToken(BlacklistTokenRequest) returns (BlacklistTokenResponse);
+  rpc UnblacklistToken(UnblacklistTokenRequest) returns (UnblacklistTokenResponse);
 }
 
 message RefreshReq {
@@ -25,4 +27,25 @@ message AuthReq {
 message AuthRes {
   string user_id = 1;
   string role = 2;
+}
+
+message BlacklistTokenRequest {
+  string userId = 1;
+  string role = 2;
+  string accessToken = 3;
+}
+
+message BlacklistTokenResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message UnblacklistTokenRequest {
+  string userId = 1;
+  string role = 2;
+}
+
+message UnblacklistTokenResponse {
+  bool success = 1;
+  string message = 2;
 }

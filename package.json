@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc && cp -r src/proto dist/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/server.ts"
   },
@@ -19,6 +20,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.1",
     "nodemon": "^3.1.9",
+    "redis": "^5.6.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },

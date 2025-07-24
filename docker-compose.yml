@@ -1,0 +1,9 @@
+services:
+  auth-service:
+    build: .
+    container_name: auth-service
+    ports:
+      - "3005:3005"
+    env_file:
+      - .env
+      - .env.docker
